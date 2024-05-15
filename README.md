@@ -2,35 +2,46 @@
 This repository will give detailed instructions on how to apply a *Shader* created with the *Shader Graph* window to an element on a *Canvas* with the *render mode* set to *screen space : overlay*. This repository will also be used as a supplement for the [YouTube video](https://youtu.be/n77mW90Dr8g).
 
 ## Table Of Contents
-1. **[Initial Setup and Details](#1-Initial-Setup-and-Details)**
-   1. **[Disclaimer](#1.1-Disclaimer)**
-   2. **[Details](#1.2-Details)**
-   3. **[Before continuing you should have](#1.3-Before-continuing-you-should-have)**
-2. **[Instructions](#2-Instructions)**
-
+1 **[Initial Setup and Details](#1-Initial-Setup-and-Details)**
+   1.1 **[Disclaimer](#1.1-Disclaimer)**
+   1.2 **[Details](#1.2-Details)**
+   1.3 **[Before continuing you should have](#1.3-Before-continuing-you-should-have)**
+2 **[Instructions](#2-Instructions)**
+   2.1 **[Issue Discussion](#2.1-Issue-Discussion)**
+   2.2 **[The Guide Was Too Long, And I Did Not Want To Read It All](#2.2-The-Guide-Was-Too-Long,-And-I-Did-Not-Want-To-Read-It-All)**
+   2.3 **[Scene Setup](#2.3-Scene-Setup)**
+   2.4 **[Unity Editor Setup](#2.4-Unity-Editor-Setup)**
+   2.5 **[Create A Shader Graph](#2.5-Create-A-Shader-Graph)**
+   2.6 **[Setting Up The Shader Graph](#2.6-Setting-Up-The-Shader-Graph)**
+   2.7 **[Converting A Shader Graph Into A Shader](#2.7-Converting-A-Shader-Graph-Into-A-Shader)**
+3 **[Conclusion](#3-Conclusion)**
 
 ## 1 Initial Setup and Details
 ### 1.1 Disclaimer
 To the best of my knowledge, this walkthrough and all content inside of it has been typed with no errors or misinformation. That being said, neither I, nor Nichathan Gaming owns, has affiliation to, or any form of control over Unity. All information in this walkthrough is subject to become obsolete at any moment and there are no guarantees that anything inside of this walkthrough will work. By continuing to follow this walkthrough, you understand that neither Johnathan Nichols nor Nichathan Gaming are responsible for whatever may happen. That being said, I put a lot of time and effort into this walkthrough and I sincerely hope that it can help you.
-</br>**[Back To Top](#Table-of-Contents)**
+<br/>**[Back To Top](#Table-of-Contents)**
 
 ### 1.2 Details
-This walkthrough was typed by Johnathan Nichols of [Nichathan Gaming](https://play.google.com/store/apps/dev?id=5505294983591200024) on May 14th 2024. The walkthroughs purpose is to supplement the lack of documentation by Unity which claims that it is impossible to apply a Shader created with Shader Graph to an element on a Canvas with the render mode set to screen space overlay.
-</br>**[Back To Top](#Table-of-Contents)**
+This walkthrough was typed by Johnathan Nichols of [Nichathan Gaming](https://play.google.com/store/apps/dev?id=5505294983591200024) on May 14th 2024. The walkthroughs purpose is to supplement the lack of documentation by Unity which claims that it is impossible to apply a Shader created with Shader Graph to an element on a Canvas with the render mode set to screen space - overlay.
+<br/>**[Back To Top](#Table-of-Contents)**
 
 ### 1.3 Before continuing you should have
 - [The Unity Hub](https://unity.com/download).
 - A LTS [Unity Editor](https://unity.com/download) version 2022.3.5f1 or later. **This solution should work with previous and later versions of Unity but layouts may change**
-</br>**[Back To Top](#Table-of-Contents)**
+<br/>**[Back To Top](#Table-of-Contents)**
 
 ## 2 Instructions
 ### 2.1 Issue Discussion 
-The issue with adding a material that is of a *Shader Graph* type to a *Canvas* with a *render mode* set to *screen space : overlay* is that the *Shader Graph* is not rendered and you will only see a large black rectangle in the place of your UI element. This is because of how Unity exports their *Shader* files for *Shader Graphs*. We overcome this issue by copying and pasting the *Shader* code that Unity generates and removing a few sections that end up causing *Shader Graph* files to not function on the *Canvas*.
+The issue with adding a material that is of a *Shader Graph* type to a *Canvas* with a *render mode* set to *screen space - overlay* is that the *Shader Graph* is not rendered and you will only see a large black rectangle in the place of your UI element. This is because of how Unity exports their *Shader* files for *Shader Graphs*. We overcome this issue by copying and pasting the *Shader* code that Unity generates and removing a few sections that end up causing *Shader Graph* files to not function on the *Canvas*.
+
+<br/>**[Back To Top](#Table-of-Contents)**
 
 ### 2.2 The Guide Was Too Long, And I Did Not Want To Read It All
-The simple solution to this problem is to create a functioning *Shader Graph* using a 2D *Sprite Renderer* for testing. Then you view the generated shader and copy the entire contents to an empty *Shader* file. Next, you want to remove all but the first *Pass* block and then remove the *Tags* block from the first *Pass*. The resulting code will work perfectly fine on any element in a *Canvas* with a *render mode* set to *screen space : overlay*.
+The simple solution to this problem is to create a functioning *Shader Graph* using a 2D *Sprite Renderer* for testing. Then you view the generated shader and copy the entire contents to an empty *Shader* file. Next, you want to remove all but the first *Pass* block and then remove the *Tags* block from the first *Pass*. The resulting code will work perfectly fine on any element in a *Canvas* with a *render mode* set to *screen space - overlay*.
 
 ![Final Solution](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/df6eaf98-9b68-4a64-bd18-cfb258251be3)
+
+<br/>**[Back To Top](#Table-of-Contents)**
 
 ### 2.3 Scene Setup
 <br/>In this guide, I used 2 different **Sprite (2D and UI)** images to demonstrate that it works. Any image file that you have will work just fine if you wish to follow allong. You may even use no image or default Unity images.
@@ -38,6 +49,8 @@ The simple solution to this problem is to create a functioning *Shader Graph* us
 | Hierarchy            | Canvas            | Canvas Image            | Sprite Renderer |
 |:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
 |![Hierarchy](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/efd25eab-7f00-427b-8e5b-ebedb953a431)| ![Canvas](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/d1f9e862-f1f8-4c7b-8e98-c2c66dd922f9) | ![CanvasImage](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/a762d3a5-7d5c-492f-9724-4ed01f78fb4d) | ![SpriteRenderer](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/7aa297ba-58fb-4e42-b067-737176da659f)|
+
+<br/>**[Back To Top](#Table-of-Contents)**
 
 ### 2.4 Unity Editor Setup
 <br/>To continue, you must have **Shader Graph** installed.
@@ -48,6 +61,8 @@ The simple solution to this problem is to create a functioning *Shader Graph* us
 | 1 | 2 | 3 |
 |:---:|:---:|:---:|
 |![Package Manager](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/338250a8-f019-4c53-b069-97c66fd4ae50)|![Unity Registry](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/20b26594-e01d-411d-aa2d-bda69b7fd265)|![Shader Graph](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/31b322c0-c91a-41ee-beda-44fe90e059b5)|
+
+<br/>**[Back To Top](#Table-of-Contents)**
 
 ### 2.5 Create A Shader Graph
 <br/>2.5.1 Create a **Shader Graph**. 
@@ -91,6 +106,8 @@ The simple solution to this problem is to create a functioning *Shader Graph* us
 ![Visual Guide](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/ad641a43-dadb-4200-b65e-58f4118ebd56)
 <br/>2.5.4 Open the *Shader Graph*.
 ![Untouched Shader Graph](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/70664fb0-1093-4332-91be-0ff334cdca5a)
+
+<br/>**[Back To Top](#Table-of-Contents)**
 
 ### 2.6 Setting Up The Shader Graph
 <br/>2.6.1 Create the parameters: MainTex (Texture2D) and Gradient (Gradient). *MainTex* must be spelled exactly as this parameter will capture the sprite attached to the **Image** and **Sprite Renderer**.
@@ -183,8 +200,10 @@ The simple solution to this problem is to create a functioning *Shader Graph* us
 |---|---|
 |![Sprite Renderer](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/b318ba43-696b-4a81-a49b-dc0a09c19e24)|![UI Image](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/39cb3744-02ec-4c88-ba0b-228d08b92388)|
 
+<br/>**[Back To Top](#Table-of-Contents)**
+
 ### 2.7 Converting A Shader Graph Into A Shader
-<br/>This section will detail the last few steps needed to take the **Shader Graph** code generated by Unity and convert it into a **Shader** which can be applied to **UI Elements** on a **Canvas** with a *render mode* set to *screen space : overlay*.
+<br/>This section will detail the last few steps needed to take the **Shader Graph** code generated by Unity and convert it into a **Shader** which can be applied to **UI Elements** on a **Canvas** with a *render mode* set to *screen space - overlay*.
 <br/>2.7.1 Create a new **Unlit Shader**. (Create -> Shader -> Unlit Shader)
 
 ![New Shader](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/02aeb79e-0040-439d-95f3-ee33715e94d4)
@@ -219,7 +238,7 @@ The simple solution to this problem is to create a functioning *Shader Graph* us
 ![Tags](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/1f6b0ffa-d7b5-4ccf-bee0-914da9dc2bda)
 
 
-<br/>2.7.4.5 The final part of a **Shader** will be the *Pass* sections. These sections detail how exactly to display and handle the **Shader** and they are also why the **Shader Graph** does not work on a *Canvas* with the *render mode* set to *screen space : overlay*. (A *Pass* begins with `Pass {` and ends with `ENDHLSL }`.)
+<br/>2.7.4.5 The final part of a **Shader** will be the *Pass* sections. These sections detail how exactly to display and handle the **Shader** and they are also why the **Shader Graph** does not work on a *Canvas* with the *render mode* set to *screen space - overlay*. (A *Pass* begins with `Pass {` and ends with `ENDHLSL }`.)
 <br/>**Note** : Aside from the file name, this is the only part of the generated shader that we should edit.
 
 ![Pass](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/fced406a-1241-4127-a13e-dac6582fae4f)
@@ -230,18 +249,9 @@ The simple solution to this problem is to create a functioning *Shader Graph* us
 |---|---|
 |![Start](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/f96c9afc-dfc8-4b2c-9232-610062553c36)|![End](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/79a3a507-a767-4c7e-b8e9-c236076c815b)|
 
+<br/>**[Back To Top](#Table-of-Contents)**
 
+## 3 Conclusion
+<br/>In conclusion, to add a Unity **Shader Graph** to a *Canvas* with a *render mode* set to *screen space - overlay* one should create the **Shader Graph** using a **Sprite Renderer** for testing then create an empty **Shader** file and copy the contents over removing all but the first *Pass*.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+<br/>**[Back To Top](#Table-of-Contents)**
