@@ -2,10 +2,10 @@
 This repository will give detailed instructions on how to apply a *Shader* created with the *Shader Graph* window to an element on a *Canvas* with the *render mode* set to *screen space : overlay*. This repository will also be used as a supplement for the [YouTube video](https://youtu.be/n77mW90Dr8g).
 
 ## Table Of Contents
-1. **[Initial Setup and Details](#Initial-Setup-and-Details)**
-   1. **[Disclaimer](#Disclaimer)**
-   2. **[Details](#Details)**
-   3. **[Before continuing you should have](#Before-continuing-you-should-have)**
+1. **[Initial Setup and Details](#1-Initial-Setup-and-Details)**
+   1. **[Disclaimer](#1.1-Disclaimer)**
+   2. **[Details](#1.2-Details)**
+   3. **[Before continuing you should have](#1.3-Before-continuing-you-should-have)**
 2. **[Instructions](#2-Instructions)**
 
 
@@ -30,6 +30,8 @@ The issue with adding a material that is of a *Shader Graph* type to a *Canvas* 
 ### 2.2 The Guide Was Too Long, And I Did Not Want To Read It All
 The simple solution to this problem is to create a functioning *Shader Graph* using a 2D *Sprite Renderer* for testing. Then you view the generated shader and copy the entire contents to an empty *Shader* file. Next, you want to remove all but the first *Pass* block and then remove the *Tags* block from the first *Pass*. The resulting code will work perfectly fine on any element in a *Canvas* with a *render mode* set to *screen space : overlay*.
 
+![Final Solution](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/df6eaf98-9b68-4a64-bd18-cfb258251be3)
+
 ### 2.3 Scene Setup
 <br/>In this guide, I used 2 different **Sprite (2D and UI)** images to demonstrate that it works. Any image file that you have will work just fine if you wish to follow allong. You may even use no image or default Unity images.
 <br/>Start with a blank scene which contains a **Main Camera**, an **EventSystem**, a **Sprite Renderer** (with a scale set to 0.2f, 0.2f, 0.2f so it may display on the Game window nicely), a **Canvas** (with a Render Mode set to Screen Space - Overlay), and an **Image** (set as a child of the **Canvas**)
@@ -38,12 +40,10 @@ The simple solution to this problem is to create a functioning *Shader Graph* us
 |![Hierarchy](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/efd25eab-7f00-427b-8e5b-ebedb953a431)| ![Canvas](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/d1f9e862-f1f8-4c7b-8e98-c2c66dd922f9) | ![CanvasImage](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/a762d3a5-7d5c-492f-9724-4ed01f78fb4d) | ![SpriteRenderer](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/7aa297ba-58fb-4e42-b067-737176da659f)|
 
 ### 2.4 Unity Editor Setup
-<br/>To continue, you must have **Shader Graph** installed. **[See Steps](#Steps)**
-
-#### 2.4.1 Steps
-<br/>2.4.1.1 Open the **Package Manager**.
-<br/>2.4.1.2 Go to the **Unity Registry** Packages tab.
-<br/>2.4.1.3 Scroll down to **Shader Graph**. Ensure that it is installed or install it.
+<br/>To continue, you must have **Shader Graph** installed.
+<br/>2.4.1 Open the **Package Manager**.
+<br/>2.4.2 Go to the **Unity Registry** Packages tab.
+<br/>2.4.3 Scroll down to **Shader Graph**. Ensure that it is installed or install it.
 
 | 1 | 2 | 3 |
 |:---:|:---:|:---:|
@@ -97,28 +97,98 @@ The simple solution to this problem is to create a functioning *Shader Graph* us
 | MainTex | Gradient | End Result |
 |:---:|:---:|:---:|
 |![MainTex](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/0a424d4d-a756-43f2-8975-72576070787f)|![Gradient](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/56389934-e126-46c4-a597-5acf8bdc7f21)|![End Result](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/35c52f59-2e01-439d-85a8-b6fc8c88834c)|
+
 <br/>**Note** : The next few steps will be to set up the **MainTex** section of the *Shader Graph*. To create a new *Node*, one may right click on an open section of the *Shader Graph* window or drag a line to an open section of the *Shader Graph*.
 <br/>2.6.2 Drag the **MainTex** parameter onto the window.
+
+![MainTex](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/d940c5a2-9e44-482d-9b9c-3c156766f3e9)
+
 <br/>2.6.3 Create a **Sample Texture 2D** and connect **MainTex** to the **Texture(T2)** input of the **Sample Texture 2D**.
+
+![Sample Texture 2D](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/74bbc163-db6f-4a17-a659-d72ef2ccfbc7)
+
 <br/>2.6.4 Create a **Multiply** and connect the **RGBA(4)** of the **Sample Texture 2D** to the **A(4)** input of the **Multiply**.
-<br/>2.6.5 Create a **Vertex Color** and connect the **Out(4)** of the **Vertex Color** to the **B(4)** input of the **Multiply**.
+
+![Multiply](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/b5633d77-b386-40d6-9389-f8dacb911149)
+
+<br/>2.6.5 Create a **Vertex Color** and connect the **Out(4)** of the **Vertex Color** to the **B(4)** input of the **Multiply**. (The **Vertex Color** captures the **Color** parameter of the **Sprite Renderer** or **Image** that the material with this shader is applied to.)
+
+![Vertex Color](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/51f34f81-64cc-4e7f-8329-416fc348ee77)
+
 <br/>2.6.6 Create another **Multiply** and connect the **Out(4)** of the first **Multiply** to the **A(4)** input of the second **Multiply**.
+
+![Second Multiply](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/dc8dfc3f-3bb4-43b4-a039-f081834c6210)
+
 <br/>**Note** : The next few steps will be to set up the **Gradient* section of the *Shader Graph*. This section is editable to fit the needs and wants of the **Shader**.
 <br/>2.6.7 Drag the **Gradient** parameter onto the window. (Clicking on the **Gradient** parameter and then on the image to the right of the *Default* property in the **Graph Inspector** will allow one to set the **Gradient** values.)
+
+![Gradient](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/e31471f8-3ef2-4feb-bace-bd7d96b40c6c)
+
 <br/>2.6.8 Create a **Sample Gradient** and connect the **Gradient** to the **Gradient** input of the **Sample Gradient**.
+
+![Sample Gradient](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/08cf5bb6-9b99-4df7-b941-13182edaae10)
+
 <br/>2.6.9 Create a **UV**.
+
+![UV](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/bc605cda-6efb-4265-bb48-861554a9f23e)
+
 <br/>2.6.10 Create a **Split** and connect the **Out(4)** of the **UV** to the **In(4)** of the **Split**.
+
+![Split](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/610347ff-8bb6-4aa6-bab7-36a4e64330e7)
+
 <br/>2.6.11 Connect the **R(1)** of the **Split** to the **Time(1)** of the **Sample Gradient**. (The gradient image should now be visible in the **Sample Gradient** dropdown. Also, one may see the outputs R(1), G(1), B(1), A(1). R-Horizontal Gradient, G-Vertical Gradient, B-Left Color, A-Right Color)
+
+![Split SampleGradient Connection](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/3a382a4f-4b39-4268-8edc-92cd2afb69b4)
+
+|Horizontal Gradient|Vertical Gradient|Left Color|Right Color|
+|---|---|---|---|
+|![Horizontal Gradient](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/355f8f35-eb0e-4283-bc1d-56c763af39bd)|![Vertical Gradient](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/b170d1ce-c5ed-4420-bd61-ff2c266fe746)|![Left Color](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/470be860-7f52-479e-9282-27d005b1813a)|![Right Color](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/a77496c6-3c43-46a4-84fe-19d26534399e)|
+
 <br/>2.6.12 Create a **Multiply** and connect the **Out(4)** of the **Sample Gradient** to the **A(4)** and **B(4)** of the **Multiply**. (This will deepen the color of the gradient and make it closer to an actual gradient as the default *Shader* gradients are too soft.)
+
+![Gradient Multiply](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/b2da3f89-f3c5-442c-883c-139077859178)
+
 <br/>**Note** : The next few steps will combine steps 2-7 and 8-12 and make the **Sprite Graph** display on the **Sprite Renderer**.
 <br/>2.6.13 Connect the **Out(4)** of the **Gradient's Multiply** (step 12) to the second **Multiply** (step 6) from the **MainTex** section. (This will add the color of the gradient to the image and color of the **Sprite Renderer** and **UI Image**.)
-<br/>2.6.14 Create a **Split**.
-<br/>2.6.15 Connect the **Out(4)** of step 6's **Multiply** to the **In(4)** of the **Split**. (This allows us to get the *Alpha* value from the color.
-<br/>2.6.16 Connect the **Out(4)** of step 6's **Multiply** to the **Base COlor(3)** of the **Fragment**.
+
+![Connecting the Multiplies](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/e6636801-b2e0-4554-b7a2-9a22e3e7c15d)
+
+<br/>2.6.14 Create a **Split** and connect the **Out(4)** of step 6's **Multiply** to the **In(4)** of the **Split**. (This allows us to get the *Alpha* value from the color.)
+
+![Split](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/45d07c6d-df83-4ef7-85d2-10743857f215)
+
+<br/>2.6.15 Connect the **Out(4)** of step 6's **Multiply** to the **Base Color(3)** of the **Fragment**.
+
+![Base Color](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/d90cc4a2-2f33-49c1-93ec-28f861f7b22f)
+
+<br/>2.6.16 In the **Graph Inspector**, in the **Graph Settings** tab, change the **Built-In** **Surface Type** from **Opaque** to **Transparent**. (The parameter *Blending Mode* should be automatically added and set to *Alpha*.)
+
+![Graph Settings](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/dc304841-4cfa-426a-ae8a-1bd699675965)
+
 <br/>2.6.17 Connect the **A(1)** of the **Split** to the **Alpha(1)** of the **Fragment**.
-<br/>2.6.18 Everything is all connected. Click **Save Asset** in the top left of the *Shader Graph* window to apply the changes and see them in the **Sprite Renderer**.
+
+![Alpha Connection](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/7518a8fd-32fc-4801-8036-f88ea7beb39a)
+
+<br/>2.6.18 Everything is all connected. Click **Save Asset** in the top left of the *Shader Graph* window to apply the changes and see them in the **Sprite Renderer**. (Pressing `Ctrl+s` does not save a **Shader Graph** file.)
+
+![Save Button](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/34f0feaa-05b0-4bec-8bbf-8dd3202428cd)
+
+|Unsaved File|Saved File|
+|---|---|
+|![Unsaved](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/36c0828b-2892-4010-b958-162772952476)|![Saved](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/cf4602ff-a4d5-47c6-96fb-930217146692)|
+
 <br/>**Note** : One may notice that while the **Sprite Renderer** is currently displaying the **Shader** correctly, the **UI Image** will just be a black rectangle.
+
+|Sprite Renderer|UI Image|
+|---|---|
+|![Sprite Renderer](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/b318ba43-696b-4a81-a49b-dc0a09c19e24)|![UI Image](https://github.com/Nichathan-Gaming/Unity-Shader-Graph-With-Canvas-Overlay/assets/103794085/39cb3744-02ec-4c88-ba0b-228d08b92388)|
 
 ### 2.7 Converting A Shader Graph Into A Shader
 <br/>This section will detail the last few steps needed to take the **Shader Graph** code generated by Unity and convert it into a **Shader** which can be applied to **UI Elements** on a **Canvas** with a *render mode* set to *screen space : overlay*.
 <br/>2.7.1 Create a new **C# Script** and name it **CanvasGradient.Shader**. (CanvasGradient can be replaced with any name one wants however the file type must be *.shader*.)
+
+
+
+
+
+
