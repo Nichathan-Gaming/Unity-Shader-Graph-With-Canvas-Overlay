@@ -32,7 +32,6 @@ whitelist           : []
 plugins             : []
 
 # Conversion
-markdown            : GFM
 highlighter         : rouge
 lsi                 : false
 excerpt_separator   : "\n\n"
