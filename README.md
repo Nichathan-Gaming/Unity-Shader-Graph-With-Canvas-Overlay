@@ -2,19 +2,19 @@
 This repository will give detailed instructions on how to apply a *Shader* created with the *Shader Graph* window to an element on a *Canvas* with the *render mode* set to *screen space : overlay*. This repository will also be used as a supplement for the [YouTube video](https://youtu.be/n77mW90Dr8g).
 
 ## Table Of Contents
-1 **[Initial Setup and Details](#1-Initial-Setup-and-Details)**
-   1.1 **[Disclaimer](#1.1-Disclaimer)**
-   1.2 **[Details](#1.2-Details)**
-   1.3 **[Before continuing you should have](#1.3-Before-continuing-you-should-have)**
-2 **[Instructions](#2-Instructions)**
-   2.1 **[Issue Discussion](#2.1-Issue-Discussion)**
-   2.2 **[The Guide Was Too Long, And I Did Not Want To Read It All](#2.2-The-Guide-Was-Too-Long,-And-I-Did-Not-Want-To-Read-It-All)**
-   2.3 **[Scene Setup](#2.3-Scene-Setup)**
-   2.4 **[Unity Editor Setup](#2.4-Unity-Editor-Setup)**
-   2.5 **[Create A Shader Graph](#2.5-Create-A-Shader-Graph)**
-   2.6 **[Setting Up The Shader Graph](#2.6-Setting-Up-The-Shader-Graph)**
-   2.7 **[Converting A Shader Graph Into A Shader](#2.7-Converting-A-Shader-Graph-Into-A-Shader)**
-3 **[Conclusion](#3-Conclusion)**
+<br/>1 **[Initial Setup and Details](#1-Initial-Setup-and-Details)**
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;1.1 **[Disclaimer](#1.1-Disclaimer)**
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;1.2 **[Details](#1.2-Details)**
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;1.3 **[Before continuing you should have](#1.3-Before-continuing-you-should-have)**
+<br/>2 **[Instructions](#2-Instructions)**
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;2.1 **[Issue Discussion](#2.1-Issue-Discussion)**
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;2.2 **[The Guide Was Too Long, And I Did Not Want To Read It All](#2.2-The-Guide-Was-Too-Long,-And-I-Did-Not-Want-To-Read-It-All)**
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;2.3 **[Scene Setup](#2.3-Scene-Setup)**
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;2.4 **[Unity Editor Setup](#2.4-Unity-Editor-Setup)**
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;2.5 **[Create A Shader Graph](#2.5-Create-A-Shader-Graph)**
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;2.6 **[Setting Up The Shader Graph](#2.6-Setting-Up-The-Shader-Graph)**
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;2.7 **[Converting A Shader Graph Into A Shader](#2.7-Converting-A-Shader-Graph-Into-A-Shader)**
+<br/>3 **[Conclusion](#3-Conclusion)**
 
 ## 1 Initial Setup and Details
 ### 1.1 Disclaimer
