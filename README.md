@@ -3,7 +3,7 @@ This repository will give detailed instructions on how to apply a *Shader* creat
 
 ## Table Of Contents
 <br/>1 **[Initial Setup and Details](#1-Initial-Setup-and-Details)**
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;1.1 **[Disclaimer](#1.1-Disclaimer)**
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;1.1 **[Disclaimer](#1.1 Disclaimer)**
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;1.2 **[Details](#1.2-Details)**
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;1.3 **[Before continuing you should have](#1.3-Before-continuing-you-should-have)**
 <br/>2 **[Instructions](#2-Instructions)**
