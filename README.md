@@ -6,7 +6,7 @@ This repository will give detailed instructions on how to apply a *Shader* creat
    1. **[Disclaimer](#Disclaimer)**
    2. **[Details](#Details)**
    3. **[Before continuing you should have](#Before-continuing-you-should-have)**
-2. **[Instructions](#Instructions)**
+2. **[Instructions](#2-Instructions)**
 
 
 ## 1 Initial Setup and Details
