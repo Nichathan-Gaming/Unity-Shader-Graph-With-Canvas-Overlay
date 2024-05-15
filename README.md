@@ -8,7 +8,7 @@ This repository will give detailed instructions on how to apply a *Shader* creat
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;1.3 **[Before continuing you should have](#13-Before-continuing-you-should-have)**
 <br/>2 **[Instructions](#2-Instructions)**
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;2.1 **[Issue Discussion](#21-Issue-Discussion)**
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;2.2 **[The Guide Was Too Long, And I Did Not Want To Read It All](#22-The-Guide-Was-Too-Long,-And-I-Did-Not-Want-To-Read-It-All)**
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;2.2 **[The Guide Was Too Long, And I Did Not Want To Read It All](#22-The-Guide-Was-Too-Long-And-I-Did-Not-Want-To-Read-It-All)**
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;2.3 **[Scene Setup](#23-Scene-Setup)**
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;2.4 **[Unity Editor Setup](#24-Unity-Editor-Setup)**
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;2.5 **[Create A Shader Graph](#25-Create-A-Shader-Graph)**
